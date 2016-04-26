@@ -1,0 +1,63 @@
+#N canvas -8 -8 1366 685 10;
+#X obj 166 143 line 1 500;
+#X msg 93 100 1;
+#X obj 188 37 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 62 358 *~;
+#X obj 209 549 writesf~;
+#X msg 295 451 start;
+#X msg 209 452 stop;
+#X floatatom 196 259 5 0 0 0 - - -;
+#X obj 58 567 dac~;
+#X obj 19 280 phasor~ 440;
+#X obj 58 470 lop~ 600;
+#X obj 118 41 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 108 23 RESET;
+#X text 179 18 BEGIN;
+#X obj 130 324 pwm~;
+#X floatatom 405 145 5 0 0 0 - - -;
+#X text 398 116 beep time ms;
+#X floatatom 299 259 5 0 0 0 - - -;
+#X floatatom 127 452 5 0 0 0 - - -;
+#X obj 128 408 snapshot~;
+#X obj 208 361 metro 50;
+#X obj 203 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 257 214 expr $f2/(1000/$f1 - $f2);
+#X msg 185 94 0.625 300000;
+#X floatatom 31 57 5 0 0 0 - - -;
+#X obj 19 316 expr~ ($v1 - 0.5)*2;
+#X obj 186 581 hsl 128 15 20 2000 1 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 9400 1;
+#X msg 32 102 0.833;
+#X msg 197 411 open C://Users/edward.dalley/beeps/beeps-constant-1.2s.wav
+;
+#X connect 0 0 7 0;
+#X connect 0 0 14 1;
+#X connect 0 0 22 0;
+#X connect 1 0 0 0;
+#X connect 2 0 23 0;
+#X connect 2 0 5 0;
+#X connect 3 0 10 0;
+#X connect 3 0 19 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 9 0 25 0;
+#X connect 10 0 8 0;
+#X connect 10 0 8 1;
+#X connect 10 0 4 0;
+#X connect 11 0 1 0;
+#X connect 11 0 28 0;
+#X connect 14 0 3 1;
+#X connect 15 0 22 1;
+#X connect 17 0 14 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 20 0;
+#X connect 22 0 17 0;
+#X connect 23 0 0 0;
+#X connect 25 0 3 0;
+#X connect 26 0 10 1;
+#X connect 27 0 0 0;
+#X connect 28 0 4 0;
